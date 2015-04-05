@@ -1,0 +1,19 @@
+{
+  "name": "oceanapplications/cakemarketingphp",
+  "description": "getcake.com PHP API wrapper",
+  "license": "MIT",
+  "keywords": ["cakemarketing"],
+  "authors": [
+    {
+      "name": "Ocean Applications",
+      "email": "oceanapplications@gmail.com"
+    }
+  ],
+  "require": {},
+  "require-dev": {},
+  "autoload": {
+    "psr-4": {
+      "OceanApplications\\cakemarketingphp\\": "src"
+    }
+  }
+}

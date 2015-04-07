@@ -41,8 +41,9 @@ class CakeMarketing {
             $media_type_category_id."&vertical_category_id=$vertical_category_id&vertical_id=$vertical_id&offer_status_id=$offer_status_id".
             "&tag_id=$tag_id&start_at_row=$start_at_row&row_limit=$row_limit&campaign_name=$campaign_name";
 
-        echo $url;
-
+        $offersXML = simplexml_load_string($this->curl_get($url));
+        $json = json_encode($offersXML->offers);
+        return $json;
     }
 
 

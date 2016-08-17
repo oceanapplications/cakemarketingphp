@@ -46,6 +46,30 @@ class CakeMarketing {
         return $json;
     }
 
+    /**
+     * @param $start_date
+     * @param $end_date
+     * @param int $offer_id
+     * @param int $currency_id
+     * @param string $disposition_type
+     * @param string $conversion_type
+     * @param string $exclude_bot_traffic
+     * @param int $start_at_row
+     * @param int $row_limit
+     * @return string
+     */
+    public function Conversions($start_date, $end_date, $offer_id=0, $currency_id=0, $disposition_type="",
+        $conversion_type="all", $exclude_bot_traffic="false", $start_at_row=0, $row_limit=0){
+        //API v8
+        $url = $this->base_url."8/reports.asmx/Conversions?$this->api_key&$this->affiliate_id&start_date=$start_date";
+        $url .= "&end_date=$end_date&offer_id=$offer_id&currency_id=$currency_id&disposition_type=$disposition_type&conversion_type=$conversion_type";
+        $url .= "&exclude_bot_traffic=$exclude_bot_traffic&start_at_row=$start_at_row&row_limit=$row_limit";
+
+        $offersXML = simplexml_load_string($this->curl_get($url));
+
+        $json = json_encode($offersXML->conversions);
+        return $json;
+    }
 
     /**
      * @param $path URL to send HTTP GET request to
